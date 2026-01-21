@@ -42,15 +42,44 @@ func main() {
 		"%d - %f / %.2f - %t - %s",
 		fInt,
 		fFloat64,
-		fFloat64, 
-		fBool, 
+		fFloat64,
+		fBool,
 		fString,
 	)
 	fmt.Println(message)
 
-	// TODO: Практическая. 
-	varOne := 100
-	varTwo := 3.1415926535897932384622433832795028841971
-	// ! Использователь переменные для вывода 
-	// TODO: 100.0 * 3.141592 = 314.15
+	number := 0
+	if number == 0 {
+		fmt.Println("number == 0")
+	} else if number >= 10 {
+		fmt.Println("number > 10")
+	} else {
+		fmt.Println("Исключение")
+	}
+	if number > 0 && number < 10 {
+		fmt.Println("&&")
+	}
+
+	numberEx := 10
+	elemEx := numberEx
+	elemEx += 10
+	elemUrl := &numberEx
+	*elemUrl += 10
+	fmt.Println(numberEx, *elemUrl)
+
+	switch numberEx {
+	case 10:
+		fmt.Println("numberEx == 10")
+	case 20:
+		fmt.Println("numberEx == 20")
+	default:
+		fmt.Println("исключение")
+	}
+
+	switch {
+	case numberEx > 10:
+		fmt.Println("numberEx > 10")
+	case numberEx > 20:
+		fmt.Println("numberEx > 20")
+	}
 }
