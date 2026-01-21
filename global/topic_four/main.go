@@ -31,5 +31,9 @@ func main() {
 		fmt.Printf("%s: %d\n", key, value)
 	}
 
-	
+	arrayOfMaps := []map[string]any{
+		{"name": "Bobik", "status": true},
+	}
+	fmt.Println(arrayOfMaps)
+
 }
