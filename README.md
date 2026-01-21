@@ -89,3 +89,5 @@
    Проверка...
    ```
 --- 
+
+[GO Online](https://www.codechef.com/go-online-compiler)
