@@ -48,10 +48,22 @@ func main() {
 	*mask++
 	fmt.Println("origin:", origin)
 
-
-	var number int = 500;
+	var number int = 500
 	fmt.Println(number)
 
 	var balance float32 = -5.9250000001
 	fmt.Println(balance)
+
+	var runeVar rune = 'Y'
+	runeTwo := 'M'
+	fmt.Println(runeVar, runeTwo)
+
+	fmt.Printf(
+		"Строка: %s\nЧисло: %d\n",
+		"text", 100,
+	)
+	fmt.Printf(
+		"Строка: %f\nЧисло: %.2f\n",
+		10.123, 15.987,
+	)
 }

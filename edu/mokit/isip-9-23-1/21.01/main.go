@@ -49,11 +49,4 @@ func main() {
 
 	userBalance := 100.63
 	fmt.Println(userBalance)
-	// TODO: 1. преобразовать userBalance в 32bit
-	// TODO: 2. init переменную usB клонирую userBalance
-	// TODO: 3. init переменную userPrice
-	// TODO: 4. сделать switch на userPrice
-	// TODO: 5. в случае если userPrice не отрицательный
-	// TODO: прибавить к usB значение userPrice
-	// TODO: 6. Актуальный баланс меняется в userBalance
 }

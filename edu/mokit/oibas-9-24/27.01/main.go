@@ -38,4 +38,20 @@ func main() {
 	case count > 2 && count < 5:
 		fmt.Printf("Result: 5 > %d > 2\n", number)
 	}
+
+	countTwo := 0
+	for countTwo < 5 {
+		fmt.Println(countTwo)
+		countTwo++
+	}
+
+	for {
+		fmt.Println("Бесконечность")
+		break
+	}
+
+	text := "Hello"
+	for index, value := range text {
+		fmt.Println(index, value)	
+	}
 }
