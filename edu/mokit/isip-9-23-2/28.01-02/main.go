@@ -31,10 +31,4 @@ func main() {
 	for index, value := range elems {
 		fmt.Println(index, value)
 	}
-
-	var numbers [20]int
-	// TODO: 1. через for необходимо заполнить numbers
-	// ? [1, 2, 3, 4, 5, 6 ... до 20]
-	// TODO: 2. Определить сколько чётных чисел. 
-	// ! Создайте 2 for для 1 и 2. 
 }

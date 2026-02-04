@@ -18,13 +18,4 @@ func main() {
 	for index, value := range numsTwo {
 		fmt.Println(index, value)
 	}
-	
-	var numsThree [20]int
-	
-	for index, _ := range numsThree {
-		if index % 2 != 0{
-			numsThree[index] += index+1
-		}
-	}
-	fmt.Println(numsThree)
 }
