@@ -1,4 +1,3 @@
-// TODO: any, матрица, map
 package main
 
 import "fmt"

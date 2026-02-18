@@ -39,13 +39,4 @@ func main() {
 	var userMessage string
 	fmt.Print("Введите сообщение: ")
 	fmt.Scan(&userMessage)
-
-	// TODO: Алгоритм работы.
-	//? Введите сообщение: hello Bobik!
-	//? Итог: helloBobik
-	
-	//? Введите сообщение: hello Ivan! is home
-	//? Итог: helloIvanis
-
-	// ! len итога не может превышать 11 символов
 }

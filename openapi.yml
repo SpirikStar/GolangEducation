@@ -1,0 +1,11 @@
+openapi: 3.1.0
+
+info:
+  title: Интеграция COP & LMS
+  version: 0.1.0
+paths:
+  /api/users:
+    get:
+      summary: "Получить всех пользователей"
+    post:
+      summary: "Создать пользователя"

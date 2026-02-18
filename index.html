@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чекбоксы → массив</title>
+</head>
+
+<body>
+
+    <label><input type="checkbox" id="box-1"> Вариант 1</label><br>
+    <label><input type="checkbox" id="box-2"> Вариант 2</label><br>
+    <label><input type="checkbox" id="box-3"> Вариант 3</label><br>
+    <label><input type="checkbox" id="box-4"> Вариант 4</label><br>
+
+    <hr>
+    <p>Выбранные: <span id="result">ничего</span></p>
+
+    <script>
+        // массив, где будут храниться номера отмеченных пунктов
+        const selected = [];
+
+        // получаем все чекбоксы
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                // берём номер из id (box-1 → 1)
+                const number = checkbox.id.split('-')[1];
+
+                if (checkbox.checked) {
+                    // добавляем, если галочка поставлена
+                    if (!selected.includes(number)) {
+                        selected.push(number);
+                    }
+                } else {
+                    // убираем, если галочка снята
+                    const index = selected.indexOf(number);
+                    if (index !== -1) {
+                        selected.splice(index, 1);
+                    }
+                }
+
+                // для отладки
+                console.log('Выбрано:', selected);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
