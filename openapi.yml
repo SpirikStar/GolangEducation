@@ -9,3 +9,8 @@ paths:
       summary: "Получить всех пользователей"
     post:
       summary: "Создать пользователя"
+  /api/users{id}:
+    get:
+      summary: "Получить пользователя по ID"
+      parameters:
+        
