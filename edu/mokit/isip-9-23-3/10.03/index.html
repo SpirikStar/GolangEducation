@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea id="message"></textarea>
+    <button id="sendMessageWS">Отправить</button>
+
+    <div id="results"></div>
+
+    <script>
+        const ws = new WebSocket('ws://localhost:8080/ws')
+        ws.onopen = () => {
+            console.log("success connect")
+        }
+        ws.onmessage = (event) => {
+            console.log(event)
+        }
+        ws.onclose = (event) => {
+            console.log("close connect")
+        }
+
+        const message = document.querySelector('#message')
+        document.querySelector('#sendMessageWS').addEventListener(
+            'click',
+            () => {
+                const val = message.value
+                if (!val) {
+                    alert("Заполните сообщение")
+                    return
+                }
+                ws.send(val)
+            }
+        )
+    </script>
+</body>
+
+</html>
