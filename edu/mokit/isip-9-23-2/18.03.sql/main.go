@@ -1,15 +1,37 @@
-// TODO: go mod init lesson
 package main
 
 import (
 	"database/sql"
+	"log"
+
 	_ "github.com/mattn/go-sqlite3"
 )
 
-func getUsersAll() {}
-func connectDB(path string) {
-	sql.Open("sqlite3", path)
+type User struct {
+	ID        uint
+	FirstName string
+	LastName  string
+	Email     string
+	City      string
+	Age       uint
+	CreatedAt string
+}
+
+func connectDB(path string) *sql.DB {
+	db, err := sql.Open("sqlite3", path)
+	if err != nil {
+		log.Fatalln("Error:", err)
+	}
+	return db
+}
+
+func getUsersAll(db *sql.DB) {
+	var user User
+	db.Query("SELECT * FROM user")
 }
 func main() {
-	connectDB("messenger.db")
+	db := connectDB("messenger.db")
+	defer db.Close()
+
+	getUsersAll(db)
 }
