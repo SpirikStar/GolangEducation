@@ -2,6 +2,7 @@ package main
 
 import (
 	"database/sql"
+	"fmt"
 	"log"
 
 	_ "github.com/mattn/go-sqlite3"
@@ -26,9 +27,24 @@ func connectDB(path string) *sql.DB {
 }
 
 func getUsersAll(db *sql.DB) {
-	var user User
-	db.Query("SELECT * FROM user")
+	var users []User
+	rows, _ := db.Query("SELECT * FROM users")
+
+	for rows.Next() {
+		var user User
+		rows.Scan(
+			&user.ID, &user.FirstName,
+			&user.LastName, &user.Email,
+			&user.City, &user.Age,
+			&user.CreatedAt,
+		)
+		users = append(users, user)
+	}
+	fmt.Println(users)
 }
+// TODO: Создать функция поиска по id
+// TODO: Создать функция поиска 
+// TODO: пользователей > age
 func main() {
 	db := connectDB("messenger.db")
 	defer db.Close()
