@@ -25,7 +25,7 @@ func main() {
 	fmt.Println("Array (4): ", arrFour)
 
 
-	arrFive := [10]int{}
+	// arrFive := [10]int{}
 	// TODO: Используйте цикл for!
 	// TODO: Итог: [1 0 2 0 3 0 4 0 5 0]
 }

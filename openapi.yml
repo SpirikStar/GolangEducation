@@ -1,16 +1,51 @@
-openapi: 3.1.0
-
+openapi: 3.0.0
 info:
-  title: Интеграция COP & LMS
-  version: 0.1.0
+  title: Schedule Table
+  version: 1.0.0
+  description: Schedule openapi
+servers:
+  - url: http://localhost:8080
 paths:
-  /api/users:
+  /lessons:
+    # post:
+    #   summary: Create lesson
     get:
-      summary: "Получить всех пользователей"
-    post:
-      summary: "Создать пользователя"
-  /api/users{id}:
-    get:
-      summary: "Получить пользователя по ID"
+      summary: Get list lessons and filter group
       parameters:
-        
+        - name: group_id
+          in: query
+          required: false
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: create a list lessons
+          # content: json || html ?:
+  /lessons/{id}:
+    put:
+      summary: Move lesson (edit date, edit time)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LessonUpdate"
+      responses:
+        "200":
+          description: updated lesson
+
+components:
+  schemas:
+    LessonUpdate:
+      type: object
+      properties:
+        date:
+          type: string
+        time:
+          type: string
