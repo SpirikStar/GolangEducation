@@ -5,6 +5,7 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"time"
 )
 
 type YouTube struct {
@@ -39,13 +40,17 @@ func requestUrl(url string) []byte {
 	return body
 }
 func main() {
-	
+
 	bodyYouTube := requestUrl("https://iplist.opencck.org/?format=json&data=ip4&site=youtube.com")
 	var youTube YouTube
 	json.Unmarshal(bodyYouTube, &youTube)
-	
-	body := requestUrl("http://ip-api.com/json")
 
-	var info IpInfo
-	json.Unmarshal(body, &info)
+	for _, ip := range youTube.Ips {
+		url := "http://ip-api.com/json" + "/" + ip
+		body := requestUrl(url)
+		time.Sleep(100 * time.Millisecond)
+		var info IpInfo
+		json.Unmarshal(body, &info)
+		log.Println(info)
+	}
 }
