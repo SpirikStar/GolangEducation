@@ -11,8 +11,8 @@ func readFile() {
 func writeFile() {}
 
 func main() {
-	var waitGroup sync.WaitGroup
-	var mutex sync.Mutex
+	// var waitGroup sync.WaitGroup
+	// var mutex sync.Mutex
 
 	for i := 0; i < 5; i++ {
 
