@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"io"
 	"log"
 	"net/http"
@@ -23,6 +24,17 @@ func request(url string) []byte {
 	return body
 }
 
+type YouTube struct {
+	ArrayIp []string `json:"youtube.com"`
+}
+
 func main() {
-	request("https://iplist.opencck.org/?format=json&data=ip4&site=youtube.com")
+	body := request("https://iplist.opencck.org/?format=json&data=ip4&site=youtube.com")
+	var ips YouTube
+	json.Unmarshal(body, &ips)
+	for _, ip := range ips.ArrayIp {
+		url := "http://ip-api.com/json/" + ip
+		info := request(url)
+		log.Println(string(info))
+	}
 }
