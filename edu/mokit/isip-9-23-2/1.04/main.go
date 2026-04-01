@@ -45,7 +45,7 @@ func main() {
 	}{}
 
 	json.Unmarshal(body, &ips)
-	for _, ip := range ips.Servers {
+	for _, ip := range ips.Servers[0:45] {
 		bodyIp := getSource("http://ip-api.com/json/" + ip)
 		time.Sleep(1 * time.Second)
 		fmt.Println(string(bodyIp))
