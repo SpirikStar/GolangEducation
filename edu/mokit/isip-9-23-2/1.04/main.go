@@ -10,6 +10,8 @@ import (
 // ! https://ip-api.com
 // ! https://iplist.opencck.org/ru
 func getSource(url string) []byte {
+	// TODO: Логировать в файл debag.log
+	// TODO: дата время статус(200...)
 	response, err := http.Get(url)
 	if err != nil {
 		return []byte{}
@@ -23,6 +25,7 @@ func getSource(url string) []byte {
 	}
 	return body
 }
+
 func main() {
 	body := getSource("https://iplist.opencck.org/?format=json&data=ip4&site=youtube.com")
 
