@@ -1,6 +1,7 @@
 package main
 
 import (
+	"io"
 	"log"
 	"net/http"
 	"os"
@@ -21,6 +22,18 @@ func getImage(url string) []byte {
 		DEBAG.Println(err)
 		return []byte{}
 	}
+	defer response.Body.Close()
+
+	if response.StatusCode != http.StatusOK {
+		DEBAG.Println(response.StatusCode)
+		return []byte{}
+	}
+	content, err := io.ReadAll(response.Body)
+	if err != nil {
+		DEBAG.Println(err)
+		return []byte{}
+	}
+	return content
 }
 
 // TODO: https://loremflickr.com/
