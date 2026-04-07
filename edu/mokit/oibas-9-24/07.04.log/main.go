@@ -15,6 +15,11 @@ func init() {
 		log.Fatal(err)
 	}
 	DEBAG = log.New(file, "INFO: ", log.Ldate|log.Ltime|log.Lshortfile)
+
+	errFolder := os.MkdirAll("./images", 0755)
+	if errFolder != nil {
+		log.Fatal(errFolder)
+	}
 }
 func getImage(url string) []byte {
 	response, err := http.Get(url)
@@ -36,8 +41,10 @@ func getImage(url string) []byte {
 	return content
 }
 
-// TODO: https://loremflickr.com/
 func main() {
 	byteImage := getImage("https://loremflickr.com/800/600/cat")
-	log.Println(byteImage)
+	if len(byteImage) == 0 {
+		DEBAG.Println("Not content image")
+		return
+	}
 }
