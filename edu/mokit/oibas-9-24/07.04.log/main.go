@@ -42,9 +42,18 @@ func getImage(url string) []byte {
 }
 
 func main() {
-	byteImage := getImage("https://loremflickr.com/800/600/cat")
+	byteImage := getImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8rpGyEAl2yvIk_gVGxXhOjLWH9Tis3_-SARNgAr3Pl2Qt1vkR1kmeK6A3Kj9mix3lgKFCUQ&s=10")
 	if len(byteImage) == 0 {
 		DEBAG.Println("Not content image")
 		return
 	}
+	// TODO: Сделать генератор имен фотографий. 
+	// TODO: Оптимизировать работу с папкой
+	// TODO: - Название папки в переменную. 
+	err := os.WriteFile("./images/photo.jpg", byteImage, 0644)
+	if err != nil {
+		DEBAG.Println(err)
+		return
+	}
+	DEBAG.Println("success save image")
 }
