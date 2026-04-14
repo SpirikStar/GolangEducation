@@ -6,6 +6,7 @@ package main
 import (
 	"database/sql"
 	"log"
+	"math/rand/v2"
 
 	_ "modernc.org/sqlite"
 )
@@ -27,10 +28,15 @@ func main() {
 			year       INTEGER DEFAULT 2026
 		)
 	`)
+	yaer := rand.IntN(2026)
 	DB.Exec(`
 		INSERT INTO users (first_name, year)
 		VALUES (?, ?)
-	`, "Bobik", 2023)
+	`, "Bobik", yaer)
+	
+	DB.Exec(`
+		SELECT * FROM users
+	`)
 
 	// TODO: 1. Сделать генерацию для `year`
 	// TODO: 2. Выполнить SELECT запрос
