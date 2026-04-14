@@ -1,14 +1,9 @@
 package main
 
 import (
-	"context"
 	"encoding/json"
 	"io"
-	"log"
 	"net/http"
-
-	"cloud.google.com/go/translate"
-	"golang.org/x/text/language"
 )
 
 type Joke struct {
@@ -32,18 +27,4 @@ func main() {
 	result := getReponse("https://official-joke-api.appspot.com/random_joke")
 	var joke Joke
 	json.Unmarshal(result, &joke)
-
-	ctx := context.Background()
-	client, err := translate.NewClient(ctx)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer client.Close()
-
-	translations, err := client.Translate(ctx, []string{joke.Setup}, language.Russian, nil)
-	log.Println(translations)
-	// TODO: Подключить RU
-	// TODO: go mod init translate-lesson
-	// TODO: go get cloud.google.com/go/translate
-
 }
