@@ -17,10 +17,13 @@ func init() {
 }
 
 func main() {
-	// TODO: Изучить всю 10 главу. 
-	// TODO: Используйте текущий код и добавляйте 
-	// TODO: примеры представленные в документации  
+	_, err := os.Open("./content.txt")
+	if err != nil {
+		DEBAG.Println(err)
+	}
+	// TODO: Изучить всю 10 главу.
+	// TODO: Используйте текущий код и добавляйте
+	// TODO: примеры представленные в документации
 	// TODO: https://metanit.com/go/tutorial/11.1.php
 	// TODO: Логируйте результат!
-	DEBAG.Println(200)
 }

@@ -1,0 +1,8 @@
+INFO: 2026/04/08 16:05:02 main.go:14: ok
+INFO: 2026/04/08 16:06:51 main.go:16: ok
+INFO: 2026/04/08 16:08:36 main.go:18: ok
+INFO: 2026/04/08 17:10:08 main.go:19: open ./content.txt: no such file or directory
+INFO: 2026/04/08 17:13:53 main.go:32: open ./content.txt: no such file or directory
+INFO: 2026/04/08 17:13:53 main.go:37: Недопустимое число. Должно быть больше 0
+INFO: 2026/04/08 17:14:08 main.go:32: open ./content.txt: no such file or directory
+INFO: 2026/04/08 17:14:08 main.go:39: 120
