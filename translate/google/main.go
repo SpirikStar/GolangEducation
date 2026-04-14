@@ -19,7 +19,7 @@ func main() {
 
 	}
 
-	fmt.Printf("Русский: %s\n\n", translated)
+	fmt.Printf("Русский: %s\n", translated)
 }
 
 func translateEnToRu(text string) (string, error) {
