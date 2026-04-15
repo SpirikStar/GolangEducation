@@ -11,7 +11,6 @@ import (
 func downloadAvatar(id int, isCreated bool, wg *sync.WaitGroup) any {
 	defer wg.Done()
 	code := getAvatar(id)
-
 	if !isCreated {
 		return code
 	}
