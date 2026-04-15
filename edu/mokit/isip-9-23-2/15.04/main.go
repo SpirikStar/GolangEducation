@@ -6,6 +6,7 @@ package main
 import (
 	"log"
 	"os"
+	"sync"
 )
 
 var baseUrl string = "https://avatars.githubusercontent.com/u/"
@@ -19,10 +20,10 @@ func init() {
 }
 
 func main() {
-	downloadAvatar(1, true)
-	// TODO: Скачать 1000 аватаров
-	// TODO: Измерить скорость выполнения
-	
-	// TODO: Переведите downloadAvatar в горутины
-	// TODO: Измерить скорость выполнения
+	var wg sync.WaitGroup
+	for id := 1; id < 50; id++ {
+		wg.Add(1)
+		go downloadAvatar(id, true, &wg)
+	}
+	wg.Wait()
 }
