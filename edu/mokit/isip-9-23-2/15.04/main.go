@@ -20,4 +20,9 @@ func init() {
 
 func main() {
 	downloadAvatar(1, true)
+	// TODO: Скачать 1000 аватаров
+	// TODO: Измерить скорость выполнения
+	
+	// TODO: Переведите downloadAvatar в горутины
+	// TODO: Измерить скорость выполнения
 }
