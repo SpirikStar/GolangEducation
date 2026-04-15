@@ -3,5 +3,9 @@
 // TODO: go run .
 package main
 
+import "fmt"
+
 func main() {
+	avatar := getAvatar(1)
+	fmt.Println(avatar)
 }

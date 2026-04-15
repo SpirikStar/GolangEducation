@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"io"
 	"net/http"
 )
@@ -8,7 +9,8 @@ import (
 var baseUrl string = "https://avatars.githubusercontent.com/u/"
 
 func getAvatar(id int) []byte {
-	url := baseUrl + string(id)
+	url := fmt.Sprintf("%s%d", baseUrl, id)
+
 	response, err := http.Get(url)
 	if err != nil {
 		return []byte{}
