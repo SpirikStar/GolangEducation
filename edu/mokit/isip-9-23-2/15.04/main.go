@@ -4,13 +4,15 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"os"
 )
 
+var baseUrl string = "https://avatars.githubusercontent.com/u/"
+var folderAvatars string = "avatars"
+
 func init() {
-	err := os.Mkdir("avatars", 0644)
+	err := os.MkdirAll(folderAvatars, 0755)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -22,5 +24,5 @@ func main() {
 	// TODO: Сохранения изображения в папку avatars
 	// TODO: Название файла индентичное id
 	avatar := getAvatar(1)
-	fmt.Println(avatar)
+	downloadAvatar(avatar, 1)
 }

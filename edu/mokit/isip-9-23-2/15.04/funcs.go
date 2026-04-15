@@ -4,9 +4,17 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"os"
 )
 
-var baseUrl string = "https://avatars.githubusercontent.com/u/"
+func downloadAvatar(code []byte, id int) bool {
+	path := folderAvatars + fmt.Sprintf("/%d.jpg", id)
+	err := os.WriteFile(path, code, 0644)
+	if err != nil {
+		return false
+	}
+	return true
+}
 
 func getAvatar(id int) []byte {
 	url := fmt.Sprintf("%s%d", baseUrl, id)
