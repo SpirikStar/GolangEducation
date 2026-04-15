@@ -7,6 +7,7 @@ import (
 )
 
 type Joke struct {
+	Id        string `json:"id"`
 	Type      string `json:"type"`
 	Setup     string `json:"setup"`
 	Punchline string `json:"punchline"`
