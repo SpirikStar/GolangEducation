@@ -7,7 +7,11 @@ import (
 	"os"
 )
 
-func downloadAvatar(code []byte, id int) bool {
+func downloadAvatar(id int, isCreated bool) any {
+	code := getAvatar(id)
+	if !isCreated {
+		return code
+	}
 	path := folderAvatars + fmt.Sprintf("/%d.jpg", id)
 	err := os.WriteFile(path, code, 0644)
 	if err != nil {

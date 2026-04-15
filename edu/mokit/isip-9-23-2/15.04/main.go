@@ -19,10 +19,5 @@ func init() {
 }
 
 func main() {
-	// TODO: Создать функцию downloadAvatar
-	// TODO: параметры: code, id
-	// TODO: Сохранения изображения в папку avatars
-	// TODO: Название файла индентичное id
-	avatar := getAvatar(1)
-	downloadAvatar(avatar, 1)
+	downloadAvatar(1, true)
 }
