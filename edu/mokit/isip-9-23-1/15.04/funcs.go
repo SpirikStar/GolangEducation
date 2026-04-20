@@ -17,6 +17,12 @@ func downloadAvatar(id int, isCreated bool, wg *sync.WaitGroup) any {
 	if len(code) == 0 {
 		return false
 	}
+	defaultPhoto, _ := os.ReadFile("default/default.jpg")
+	if string(defaultPhoto) == string(code) {
+		return false
+	}
+	test, _ := os.ReadFile("avatars/100088.jpg")
+	fmt.Println(test)
 	path := folderAvatars + fmt.Sprintf("/%d.jpg", id)
 	err := os.WriteFile(path, code, 0644)
 	if err != nil {
