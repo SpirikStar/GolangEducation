@@ -12,9 +12,9 @@ func init() {
 }
 // TODO: Создать функцию которая сохраняет
 // TODO: изображение в папку avatars
+// TODO: Название изображения = id
 // TODO: Функции: getAvatar, downloadAvatar, initAvatar
 // TODO: initAvatar - запускает getAvatar и downloadAvatar
-
 
 func getAvatar(id uint) []byte {
 	url := fmt.Sprintf("%s%d", URL, id)
