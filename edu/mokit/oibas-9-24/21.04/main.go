@@ -38,3 +38,6 @@ func main() {
 		// ? database/sql
 	}
 }
+// TODO: 1. Что такое BinaryField
+// TODO: 2. Объяснить как устроен алгоритм 
+// TODO: сохрания изображения в table

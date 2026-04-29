@@ -11,6 +11,10 @@ import (
 func downloadAvatar(id int, isCreated bool, wg *sync.WaitGroup) any {
 	defer wg.Done()
 	code := getAvatar(id)
+	// len(code)
+	if (code == ...) {
+		return false
+	}
 
 	if !isCreated {
 		return code

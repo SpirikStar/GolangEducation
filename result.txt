@@ -1,1 +1,3 @@
-https://avatars.githubusercontent.com/u/8
+https://go.dev/blog/error-handling-and-go
+
+https://metanit.com/go/tutorial/11.1.php
